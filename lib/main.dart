@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'screens/dashboard_screen.dart';
 import 'screens/assignments_screen.dart';
 import 'screens/schedule_screen.dart';
+import 'screens/announcements_screen.dart';   
 
 void main() {
   runApp(const AluStudentPlatformApp());
@@ -20,11 +21,11 @@ class AluStudentPlatformApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(
           seedColor: const Color(0xFF0D1B2A),
           brightness: Brightness.dark,
-          primary: const Color(0xFF0D1B2A), // Dark Navy Blue
-          secondary: const Color(0xFFF5A623), // Gold/Yellow
+          primary: const Color(0xFF0D1B2A),
+          secondary: const Color(0xFFF5A623),
           background: const Color(0xFF0D1B2A),
-          surface: const Color(0xFF1B263B), // Dark Blue
-          error: const Color(0xFFC41E3A), // Red
+          surface: const Color(0xFF1B263B),
+          error: const Color(0xFFC41E3A),
         ),
         scaffoldBackgroundColor: const Color(0xFF0D1B2A),
         appBarTheme: const AppBarTheme(
@@ -52,6 +53,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
     DashboardScreen(),
     AssignmentsScreen(),
     ScheduleScreen(),
+    AnnouncementsScreen(),   
   ];
 
   @override
@@ -81,6 +83,10 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.calendar_today),
             label: 'Schedule',
+          ),
+          BottomNavigationBarItem(                  
+            icon: Icon(Icons.campaign),             
+            label: 'Announcements',
           ),
         ],
       ),
