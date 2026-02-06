@@ -39,7 +39,7 @@ class AnnouncementsScreen extends StatelessWidget {
       type: "Update",
     ),
     Announcement(
-      title: "Office Hours strictly from 7 am to 4 PM",
+      title: "Office Hours are strictly from 7 am to 4 PM",
       description:
           "Please note that office hours will be strictly from 7 am to 4 PM starting next week. Plan accordingly.",
       date: "Feb 10",
