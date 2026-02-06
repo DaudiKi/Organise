@@ -26,7 +26,7 @@ class _AnnouncementsScreenState extends State<AnnouncementsScreen> {
     Announcement(
       title: "Reminder: Project Deadlines Extended",
       description:
-          "Because we good humans, we decided extended the project deadlines by 2 days. Make sure to submit on time!",
+          "Because we good humans, we decided to extend the project deadlines by 2 days. Make sure to submit on time!",
       date: "Feb 20",
       type: "Reminder",
     ),
