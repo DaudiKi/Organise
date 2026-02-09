@@ -45,9 +45,10 @@ class _StudentSignUpScreenState extends State<StudentSignUpScreen> {
       return 'Please enter a valid email address';
     }
 
-    // University domain validation (example: .edu domain)
-    if (!value.toLowerCase().contains('.edu')) {
-      return 'Please use your university email (.edu)';
+    // University domain validation (alustudent.com or .edu domain)
+    if (!value.toLowerCase().contains('alustudent.com') && 
+        !value.toLowerCase().contains('.edu')) {
+      return 'Please use your university email (alustudent.com or .edu)';
     }
 
     return null;

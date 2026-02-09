@@ -59,6 +59,7 @@ class FormContainerWidget extends StatelessWidget {
               controller: emailController,
               keyboardType: TextInputType.emailAddress,
               validator: validateEmail,
+              style: const TextStyle(color: Colors.black),
               decoration: InputDecoration(
                 hintText: 'your.email@alustudent.com',
                 prefixIcon: Icon(
