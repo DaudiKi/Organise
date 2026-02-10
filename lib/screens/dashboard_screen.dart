@@ -6,6 +6,7 @@ import '../widgets/stats_card_widget.dart';
 import '../widgets/session_card_widget.dart';
 import '../widgets/assignment_card_widget.dart';
 import 'assignment_details_screen.dart';
+import 'risk_status_screen.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -19,6 +20,39 @@ class DashboardScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: const Color(0xFF0D1B2A),
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF0D1B2A),
+        elevation: 0,
+        title: const Text(
+          'Dashboard',
+          style: TextStyle(color: Colors.white),
+        ),
+        actions: [
+          IconButton(
+            icon: const Icon(
+              Icons.warning_amber_rounded,
+              color: Colors.orange,
+              size: 28,
+            ),
+            tooltip: 'Risk Status',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => RiskStatusScreen(
+                    studentName: MockDataProvider.getStudentName(),
+                    attendancePercentage: attendancePercentage,
+                    assignmentCompletionPercentage:
+                        MockDataProvider.getAssignmentCompletionPercentage(),
+                    averageScorePercentage:
+                        MockDataProvider.getAverageScorePercentage(),
+                  ),
+                ),
+              );
+            },
+          ),
+        ],
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(

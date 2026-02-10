@@ -154,4 +154,22 @@ class MockDataProvider {
   static int getAcademicWeek() {
     return 6;
   }
+
+  // Get student name
+  static String getStudentName() {
+    return 'Student';
+  }
+
+  // Calculate assignment completion percentage
+  static double getAssignmentCompletionPercentage() {
+    if (assignments.isEmpty) return 100.0;
+    final completedAssignments = assignments.where((a) => a.isCompleted).length;
+    return (completedAssignments / assignments.length) * 100;
+  }
+
+  // Get average score percentage
+  static double getAverageScorePercentage() {
+    // Mock average score - in a real app, this would be calculated from actual grades
+    return 78.5;
+  }
 }
