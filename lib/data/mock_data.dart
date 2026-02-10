@@ -2,8 +2,8 @@ import '../models/assignment.dart';
 import '../models/session.dart';
 
 class MockDataProvider {
-  // Sample assignments
-  static final List<Assignment> assignments = [
+  // Mutable assignments list (in-memory persistence)
+  static final List<Assignment> _assignments = [
     Assignment(
       id: '1',
       title: 'Formative_Assignment_1',
@@ -19,6 +19,35 @@ class MockDataProvider {
       priority: 'Medium',
     ),
   ];
+
+  // Getter that returns sorted assignments by due date
+  static List<Assignment> get assignments {
+    _assignments.sort((a, b) => a.dueDate.compareTo(b.dueDate));
+    return _assignments;
+  }
+
+  // Add a new assignment
+  static void addAssignment(Assignment assignment) {
+    _assignments.add(assignment);
+  }
+
+  // Update an existing assignment
+  static void updateAssignment(Assignment updatedAssignment) {
+    final index = _assignments.indexWhere((a) => a.id == updatedAssignment.id);
+    if (index != -1) {
+      _assignments[index] = updatedAssignment;
+    }
+  }
+
+  // Delete an assignment
+  static void deleteAssignment(String id) {
+    _assignments.removeWhere((a) => a.id == id);
+  }
+
+  // Get assignments by priority
+  static List<Assignment> getAssignmentsByPriority(String priority) {
+    return assignments.where((a) => a.priority == priority).toList();
+  }
 
   // Sample sessions
   static final List<Session> sessions = [

@@ -5,6 +5,7 @@ import '../widgets/attendance_warning_widget.dart';
 import '../widgets/stats_card_widget.dart';
 import '../widgets/session_card_widget.dart';
 import '../widgets/assignment_card_widget.dart';
+import 'assignment_details_screen.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -171,8 +172,19 @@ class DashboardScreen extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Column(
                     children: upcomingAssignments
-                        .map((assignment) =>
-                            AssignmentCardWidget(assignment: assignment))
+                        .map((assignment) => AssignmentCardWidget(
+                              assignment: assignment,
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => AssignmentDetailsScreen(
+                                      assignment: assignment,
+                                    ),
+                                  ),
+                                );
+                              },
+                            ))
                         .toList(),
                   ),
                 ),
