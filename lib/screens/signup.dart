@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../constants/colours.dart';
+
 import '../widgets/form_container_widget.dart';
 
 /// Student Sign-Up Screen
@@ -46,7 +48,7 @@ class _StudentSignUpScreenState extends State<StudentSignUpScreen> {
     }
 
     // University domain validation (alustudent.com or .edu domain)
-    if (!value.toLowerCase().contains('alustudent.com') && 
+    if (!value.toLowerCase().contains('alustudent.com') &&
         !value.toLowerCase().contains('.edu')) {
       return 'Please use your university email (alustudent.com or .edu)';
     }
@@ -118,7 +120,7 @@ class _StudentSignUpScreenState extends State<StudentSignUpScreen> {
     final theme = Theme.of(context);
 
     return Scaffold(
-      backgroundColor: const Color(0xFF1a237e),
+      backgroundColor: kPrimaryDark,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
@@ -132,13 +134,13 @@ class _StudentSignUpScreenState extends State<StudentSignUpScreen> {
                   width: 80,
                   height: 80,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: kSurfaceDark,
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: const Center(
                     child: Icon(
                       Icons.school,
-                      color: Color(0xFF1a237e),
+                      color: kAccentGold,
                       size: 48,
                     ),
                   ),
@@ -176,8 +178,8 @@ class _StudentSignUpScreenState extends State<StudentSignUpScreen> {
                   child: ElevatedButton(
                     onPressed: _isLoading ? null : _handleSignUp,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFFffc107),
-                      foregroundColor: Colors.black,
+                      backgroundColor: kAccentGold,
+                      foregroundColor: kPrimaryDark,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),
@@ -190,14 +192,14 @@ class _StudentSignUpScreenState extends State<StudentSignUpScreen> {
                             child: CircularProgressIndicator(
                               strokeWidth: 2,
                               valueColor: AlwaysStoppedAnimation<Color>(
-                                Colors.black,
+                                kPrimaryDark,
                               ),
                             ),
                           )
                         : Text(
                             'Sign Up',
                             style: theme.textTheme.titleMedium?.copyWith(
-                              color: Colors.black,
+                              color: kPrimaryDark,
                               fontWeight: FontWeight.w600,
                             ),
                           ),

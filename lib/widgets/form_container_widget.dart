@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../constants/colours.dart';
+
 ///container housing email input field and course selection
 class FormContainerWidget extends StatelessWidget {
   final GlobalKey<FormState> formKey;
@@ -27,8 +29,12 @@ class FormContainerWidget extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: kSurfaceDark,
         borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: Colors.white.withOpacity(0.08),
+          width: 1,
+        ),
       ),
       child: Form(
         key: formKey,
@@ -39,7 +45,7 @@ class FormContainerWidget extends StatelessWidget {
             Text(
               'Student Sign-Up',
               style: theme.textTheme.titleLarge?.copyWith(
-                color: Colors.black87,
+                color: kTextPrimary,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -50,7 +56,7 @@ class FormContainerWidget extends StatelessWidget {
             Text(
               'University Email',
               style: theme.textTheme.titleSmall?.copyWith(
-                color: Colors.black87,
+                color: kTextSecondary,
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -59,37 +65,42 @@ class FormContainerWidget extends StatelessWidget {
               controller: emailController,
               keyboardType: TextInputType.emailAddress,
               validator: validateEmail,
-              style: const TextStyle(color: Colors.black),
+              style: const TextStyle(color: kTextPrimary),
               decoration: InputDecoration(
                 hintText: 'your.email@alustudent.com',
+                hintStyle: const TextStyle(color: kTextTertiary),
                 prefixIcon: Icon(
                   Icons.email,
-                  color: const Color.fromARGB(255, 0, 0, 0),
+                  color: kTextTertiary,
                 ),
                 filled: true,
-                fillColor: Colors.grey.shade50,
+                fillColor: kPrimaryDark,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
-                  borderSide: BorderSide(color: Colors.grey.shade300, width: 1),
+                  borderSide: BorderSide(
+                      color: Colors.white.withOpacity(0.15), width: 1),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
-                  borderSide: BorderSide(color: Colors.grey.shade300, width: 1),
+                  borderSide: BorderSide(
+                      color: Colors.white.withOpacity(0.15), width: 1),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
                   borderSide: const BorderSide(
-                    color: Color(0xFF1a237e),
+                    color: kAccentGold,
                     width: 2,
                   ),
                 ),
                 errorBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
-                  borderSide: const BorderSide(color: Colors.red, width: 1),
+                  borderSide:
+                      BorderSide(color: theme.colorScheme.error, width: 1),
                 ),
                 focusedErrorBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
-                  borderSide: const BorderSide(color: Colors.red, width: 2),
+                  borderSide:
+                      BorderSide(color: theme.colorScheme.error, width: 2),
                 ),
                 contentPadding: const EdgeInsets.symmetric(
                   horizontal: 16,
@@ -104,7 +115,7 @@ class FormContainerWidget extends StatelessWidget {
             Text(
               'Select Your Courses',
               style: theme.textTheme.titleSmall?.copyWith(
-                color: Colors.black87,
+                color: kTextSecondary,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -128,14 +139,20 @@ class FormContainerWidget extends StatelessWidget {
                     ),
                     decoration: BoxDecoration(
                       color: isSelected
-                          ? const Color(0xFF283593)
-                          : const Color(0xFF1a237e),
+                          ? kAccentGold.withOpacity(0.18)
+                          : kPrimaryDark,
                       borderRadius: BorderRadius.circular(8),
+                      border: Border.all(
+                        color: isSelected
+                            ? kAccentGold
+                            : Colors.white.withOpacity(0.10),
+                        width: 1,
+                      ),
                     ),
                     child: Text(
                       course,
                       style: theme.textTheme.bodyMedium?.copyWith(
-                        color: Colors.white,
+                        color: isSelected ? kAccentGold : kTextPrimary,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
