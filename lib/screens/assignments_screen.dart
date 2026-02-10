@@ -44,7 +44,7 @@ class _AssignmentsScreenState extends State<AssignmentsScreen> {
           child: Text(
             'No assignments found',
             style: TextStyle(
-              color: Colors.white.withOpacity(0.5),
+              color: Colors.white.withValues(alpha: 0.5),
               fontSize: 14,
             ),
           ),

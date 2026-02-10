@@ -131,7 +131,7 @@ class _EditAssignmentScreenState extends State<EditAssignmentScreen> {
                 style: const TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                   labelText: 'Title',
-                  labelStyle: TextStyle(color: Colors.white.withOpacity(0.7)),
+                  labelStyle: TextStyle(color: Colors.white.withValues(alpha: 0.7)),
                   filled: true,
                   fillColor: const Color(0xFF1B263B),
                   border: OutlineInputBorder(
@@ -154,7 +154,7 @@ class _EditAssignmentScreenState extends State<EditAssignmentScreen> {
                 style: const TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                   labelText: 'Course Name',
-                  labelStyle: TextStyle(color: Colors.white.withOpacity(0.7)),
+                  labelStyle: TextStyle(color: Colors.white.withValues(alpha: 0.7)),
                   filled: true,
                   fillColor: const Color(0xFF1B263B),
                   border: OutlineInputBorder(
@@ -184,7 +184,7 @@ class _EditAssignmentScreenState extends State<EditAssignmentScreen> {
                     children: [
                       Icon(
                         Icons.calendar_today,
-                        color: Colors.white.withOpacity(0.7),
+                        color: Colors.white.withValues(alpha: 0.7),
                       ),
                       const SizedBox(width: 12),
                       Expanded(
@@ -194,7 +194,7 @@ class _EditAssignmentScreenState extends State<EditAssignmentScreen> {
                             Text(
                               'Due Date',
                               style: TextStyle(
-                                color: Colors.white.withOpacity(0.7),
+                                color: Colors.white.withValues(alpha: 0.7),
                                 fontSize: 12,
                               ),
                             ),
@@ -233,7 +233,7 @@ class _EditAssignmentScreenState extends State<EditAssignmentScreen> {
                     Text(
                       'Priority',
                       style: TextStyle(
-                        color: Colors.white.withOpacity(0.7),
+                        color: Colors.white.withValues(alpha: 0.7),
                         fontSize: 12,
                       ),
                     ),
@@ -298,7 +298,7 @@ class _EditAssignmentScreenState extends State<EditAssignmentScreen> {
                       value: _isCompleted,
                       onChanged: (value) =>
                           setState(() => _isCompleted = value),
-                      activeColor: Colors.green,
+                      activeThumbColor: Colors.green,
                     ),
                   ],
                 ),
@@ -353,17 +353,17 @@ class _PriorityChip extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         decoration: BoxDecoration(
-          color: isSelected ? color.withOpacity(0.2) : Colors.transparent,
+          color: isSelected ? color.withValues(alpha: 0.2) : Colors.transparent,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
-            color: isSelected ? color : Colors.white.withOpacity(0.3),
+            color: isSelected ? color : Colors.white.withValues(alpha: 0.3),
             width: isSelected ? 2 : 1,
           ),
         ),
         child: Text(
           label,
           style: TextStyle(
-            color: isSelected ? color : Colors.white.withOpacity(0.7),
+            color: isSelected ? color : Colors.white.withValues(alpha: 0.7),
             fontSize: 14,
             fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
           ),

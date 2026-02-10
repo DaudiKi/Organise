@@ -189,8 +189,12 @@ This project is created for academic purposes as part of the ALU curriculum.
 ## Contact
 
 For questions or collaboration:
-- Repository: [GitHub Repository Link]
-- Contributors: [Team Members]
+- Repository: [https://github.com/etienne-kagaba/alu-mobile-dev-formative-1-g16.git]
+- Contributors:etienne, Karabo, anthony, philbert & Ange    [ e.kagaba@alustudent.com
+                                                              k.ojiambo@alustudent.com
+                                                              a.ariik@alustudent.com
+                                                              p.kuria@alustudent.com
+                                                              a.umutoni1@alustudent.com]
 
 ---
 

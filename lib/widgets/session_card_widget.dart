@@ -18,7 +18,7 @@ class SessionCardWidget extends StatelessWidget {
         color: const Color(0xFF1B263B),
         borderRadius: BorderRadius.circular(8),
         border: Border.all(
-          color: Colors.white.withOpacity(0.1),
+          color: Colors.white.withValues(alpha: 0.1),
           width: 1,
         ),
       ),
@@ -28,7 +28,7 @@ class SessionCardWidget extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(8.0),
             decoration: BoxDecoration(
-              color: const Color(0xFFF5A623).withOpacity(0.2),
+              color: const Color(0xFFF5A623).withValues(alpha: 0.2),
               borderRadius: BorderRadius.circular(8),
             ),
             child: const Icon(
@@ -55,7 +55,7 @@ class SessionCardWidget extends StatelessWidget {
                 Text(
                   '${session.startTime} - ${session.endTime}',
                   style: TextStyle(
-                    color: Colors.white.withOpacity(0.6),
+                    color: Colors.white.withValues(alpha: 0.6),
                     fontSize: 14,
                   ),
                 ),
@@ -64,7 +64,7 @@ class SessionCardWidget extends StatelessWidget {
                   Text(
                     session.location,
                     style: TextStyle(
-                      color: Colors.white.withOpacity(0.5),
+                      color: Colors.white.withValues(alpha: 0.5),
                       fontSize: 12,
                     ),
                   ),
@@ -76,7 +76,7 @@ class SessionCardWidget extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
             decoration: BoxDecoration(
-              color: const Color(0xFFF5A623).withOpacity(0.2),
+              color: const Color(0xFFF5A623).withValues(alpha: 0.2),
               borderRadius: BorderRadius.circular(4),
             ),
             child: Text(

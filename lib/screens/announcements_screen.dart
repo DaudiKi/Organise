@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../constants/colours.dart'; 
+import '../constants/colours.dart';
 
 class Announcement {
   final String title;
@@ -105,7 +105,7 @@ class AnnouncementsScreen extends StatelessWidget {
 
                   return Card(
                     elevation: 2,
-                    shadowColor: Colors.black.withOpacity(0.3),
+                    shadowColor: Colors.black.withValues(alpha: 0.3),
                     color: kSurfaceDark,
                     margin: const EdgeInsets.only(bottom: 16),
                     shape: RoundedRectangleBorder(
@@ -119,7 +119,7 @@ class AnnouncementsScreen extends StatelessWidget {
                           vertical: 6,
                         ),
                         decoration: BoxDecoration(
-                          color: badgeColor.withOpacity(0.15),
+                          color: badgeColor.withValues(alpha: 0.15),
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Text(

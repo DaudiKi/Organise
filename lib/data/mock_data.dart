@@ -42,19 +42,89 @@ class MockDataProvider {
     return assignments.where((a) => a.priority == priority).toList();
   }
 
-  // Sample sessions
-  static final List<Session> sessions = [
+  // Mutable sessions list (in-memory persistence)
+  static final List<Session> _sessions = [
     Session(
       id: '1',
       title: 'Mobile Application Development - C1',
       date: DateTime(2026, 2, 10),
       startTime: '12:00',
       endTime: '13:30',
-      location: 'Room 101', // Assumed location
+      location: 'Room 101',
       sessionType: SessionType.classSession,
       wasAttended: true,
     ),
+    Session(
+      id: '2',
+      title: 'Data Structures & Algorithms',
+      date: DateTime(2026, 2, 11),
+      startTime: '09:00',
+      endTime: '10:30',
+      location: 'Room 102',
+      sessionType: SessionType.classSession,
+      wasAttended: null,
+    ),
+    Session(
+      id: '3',
+      title: 'Mobile Dev Study Group',
+      date: DateTime(2026, 2, 12),
+      startTime: '14:00',
+      endTime: '16:00',
+      location: 'Library',
+      sessionType: SessionType.studyGroup,
+      wasAttended: null,
+    ),
   ];
+
+  // Getter that returns sorted sessions by date
+  static List<Session> get sessions {
+    _sessions.sort((a, b) => a.date.compareTo(b.date));
+    return _sessions;
+  }
+
+  // Add a new session
+  static void addSession(Session session) {
+    _sessions.add(session);
+  }
+
+  // Update an existing session
+  static void updateSession(Session updatedSession) {
+    final index = _sessions.indexWhere((s) => s.id == updatedSession.id);
+    if (index != -1) {
+      _sessions[index] = updatedSession;
+    }
+  }
+
+  // Delete a session
+  static void deleteSession(String id) {
+    _sessions.removeWhere((s) => s.id == id);
+  }
+
+  // Get sessions for current week
+  static List<Session> getWeeklySessions() {
+    return sessions.where((session) => session.isInCurrentWeek()).toList();
+  }
+
+  // Update session attendance
+  static void updateSessionAttendance(String id, bool wasAttended) {
+    final index = _sessions.indexWhere((s) => s.id == id);
+    if (index != -1) {
+      _sessions[index] = _sessions[index].copyWith(wasAttended: wasAttended);
+    }
+  }
+
+  // Generate unique ID for new session
+  static String generateSessionId() {
+    if (_sessions.isEmpty) return '1';
+    final maxId = _sessions
+        .map((s) => int.tryParse(s.id) ?? 0)
+        .reduce((a, b) => a > b ? a : b);
+    return (maxId + 1).toString();
+  }
+
+  // Sample sessions (deprecated - use _sessions instead)
+  @Deprecated('Use sessions getter instead')
+  static final List<Session> deprecatedSessions = _sessions;
 
   // Get today's sessions
   static List<Session> getTodaysSessions() {
@@ -83,5 +153,23 @@ class MockDataProvider {
   // Get academic week number
   static int getAcademicWeek() {
     return 6;
+  }
+
+  // Get student name
+  static String getStudentName() {
+    return 'Student';
+  }
+
+  // Calculate assignment completion percentage
+  static double getAssignmentCompletionPercentage() {
+    if (assignments.isEmpty) return 100.0;
+    final completedAssignments = assignments.where((a) => a.isCompleted).length;
+    return (completedAssignments / assignments.length) * 100;
+  }
+
+  // Get average score percentage
+  static double getAverageScorePercentage() {
+    // Mock average score - in a real app, this would be calculated from actual grades
+    return 78.5;
   }
 }

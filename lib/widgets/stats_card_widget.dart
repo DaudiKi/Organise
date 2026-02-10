@@ -20,7 +20,7 @@ class StatsCardWidget extends StatelessWidget {
         color: backgroundColor ?? const Color(0xFF1B263B),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: Colors.white.withOpacity(0.1),
+          color: Colors.white.withValues(alpha: 0.1),
           width: 1,
         ),
       ),
@@ -40,7 +40,7 @@ class StatsCardWidget extends StatelessWidget {
             label,
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: Colors.white.withOpacity(0.7),
+              color: Colors.white.withValues(alpha: 0.7),
               fontSize: 12,
             ),
           ),

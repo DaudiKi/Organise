@@ -126,7 +126,7 @@ class _AssignmentDetailsScreenState extends State<AssignmentDetailsScreen> {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               decoration: BoxDecoration(
-                color: _getPriorityColor().withOpacity(0.2),
+                color: _getPriorityColor().withValues(alpha: 0.2),
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(
                   color: _getPriorityColor(),
@@ -159,7 +159,7 @@ class _AssignmentDetailsScreenState extends State<AssignmentDetailsScreen> {
             Text(
               _assignment.courseName,
               style: TextStyle(
-                color: Colors.white.withOpacity(0.7),
+                color: Colors.white.withValues(alpha: 0.7),
                 fontSize: 14,
               ),
             ),
@@ -172,7 +172,7 @@ class _AssignmentDetailsScreenState extends State<AssignmentDetailsScreen> {
                 color: const Color(0xFF1B263B),
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(
-                  color: Colors.white.withOpacity(0.1),
+                  color: Colors.white.withValues(alpha: 0.1),
                   width: 1,
                 ),
               ),
@@ -183,7 +183,7 @@ class _AssignmentDetailsScreenState extends State<AssignmentDetailsScreen> {
                     children: [
                       Icon(
                         Icons.calendar_today,
-                        color: Colors.white.withOpacity(0.7),
+                        color: Colors.white.withValues(alpha: 0.7),
                         size: 20,
                       ),
                       const SizedBox(width: 8),
@@ -234,7 +234,7 @@ class _AssignmentDetailsScreenState extends State<AssignmentDetailsScreen> {
                 color: const Color(0xFF1B263B),
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(
-                  color: Colors.white.withOpacity(0.1),
+                  color: Colors.white.withValues(alpha: 0.1),
                   width: 1,
                 ),
               ),

@@ -39,7 +39,7 @@ class AssignmentCardWidget extends StatelessWidget {
           color: const Color(0xFF1B263B),
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
-            color: Colors.white.withOpacity(0.1),
+            color: Colors.white.withValues(alpha: 0.1),
             width: 1,
           ),
         ),
@@ -73,7 +73,7 @@ class AssignmentCardWidget extends StatelessWidget {
                   Text(
                     assignment.courseName,
                     style: TextStyle(
-                      color: Colors.white.withOpacity(0.6),
+                      color: Colors.white.withValues(alpha: 0.6),
                       fontSize: 14,
                     ),
                   ),
@@ -87,7 +87,7 @@ class AssignmentCardWidget extends StatelessWidget {
                 Text(
                   'Due ${dateFormat.format(assignment.dueDate)}',
                   style: TextStyle(
-                    color: Colors.white.withOpacity(0.7),
+                    color: Colors.white.withValues(alpha: 0.7),
                     fontSize: 12,
                   ),
                 ),
@@ -96,7 +96,7 @@ class AssignmentCardWidget extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                   decoration: BoxDecoration(
-                    color: _getPriorityColor().withOpacity(0.2),
+                    color: _getPriorityColor().withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(4),
                   ),
                   child: Text(
