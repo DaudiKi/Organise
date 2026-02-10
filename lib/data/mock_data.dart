@@ -11,13 +11,6 @@ class MockDataProvider {
       courseName: 'Mobile Application Development Assignment',
       priority: 'High',
     ),
-    Assignment(
-      id: '2',
-      title: 'Quiz 1',
-      dueDate: DateTime.now().add(const Duration(days: 3)),
-      courseName: 'Mobile Development',
-      priority: 'Medium',
-    ),
   ];
 
   // Sample sessions
