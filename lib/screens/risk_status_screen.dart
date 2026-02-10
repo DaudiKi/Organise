@@ -26,20 +26,20 @@ class RiskStatusScreen extends StatelessWidget {
 
   Color _riskColor(double value) {
     if (value >= 75) {
-      return Colors.red;
+      return const Color(0xFF4CAF50); // Green for safe
     } else if (value >= 60) {
-      return Colors.orange;
+      return const Color(0xFFF5A623); // Orange for warning
     } else {
-      return Colors.red;
+      return const Color(0xFFC41E3A); // Red for at risk
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF0A1F44), // ALU dark navy
+      backgroundColor: const Color(0xFF0D1B2A),
       appBar: AppBar(
-        backgroundColor: const Color(0xFF0A1F44),
+        backgroundColor: const Color(0xFF0D1B2A),
         elevation: 0,
         title: const Text("Your Risk Status"),
       ),
@@ -60,10 +60,10 @@ class RiskStatusScreen extends StatelessWidget {
             const SizedBox(height: 6),
             Text(
               _riskLabel(),
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 26,
                 fontWeight: FontWeight.bold,
-                color: Colors.redAccent,
+                color: _riskColor(attendancePercentage),
               ),
             ),
 
@@ -76,17 +76,17 @@ class RiskStatusScreen extends StatelessWidget {
                 _StatCard(
                   value: "${attendancePercentage.toInt()}%",
                   label: "Attendance",
-                  color: Colors.red,
+                  color: _riskColor(attendancePercentage),
                 ),
                 _StatCard(
-                  value: "${assignmentCompletionPercentage.toInt()}%",
-                  label: "Assignment to\nSubmit",
-                  color: Colors.amber,
+                  value: "${100 - assignmentCompletionPercentage.toInt()}%",
+                  label: "Assignment Completion",
+                  color: _riskColor(100 - assignmentCompletionPercentage),
                 ),
                 _StatCard(
                   value: "${averageScorePercentage.toInt()}%",
                   label: "Average\nScore",
-                  color: Colors.red,
+                  color: _riskColor(averageScorePercentage),
                 ),
               ],
             ),
