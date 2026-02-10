@@ -6,9 +6,9 @@ class MockDataProvider {
   static final List<Assignment> assignments = [
     Assignment(
       id: '1',
-      title: 'ASSIGNMENT',
-      dueDate: DateTime.now().add(const Duration(days: 2)),
-      courseName: 'Introduction to Flutter',
+      title: 'Formative_Assignment_1',
+      dueDate: DateTime(2026, 2, 10, 23, 59),
+      courseName: 'Mobile Application Development Assignment',
       priority: 'High',
     ),
     Assignment(
@@ -18,63 +18,19 @@ class MockDataProvider {
       courseName: 'Mobile Development',
       priority: 'Medium',
     ),
-    Assignment(
-      id: '3',
-      title: 'Assignment 2',
-      dueDate: DateTime.now().add(const Duration(days: 5)),
-      courseName: 'Introduction to Flutter',
-      priority: 'High',
-    ),
-    Assignment(
-      id: '4',
-      title: 'Group Project - Mobile App',
-      dueDate: DateTime.now().add(const Duration(days: 14)),
-      courseName: 'Final Project',
-      priority: 'High',
-    ),
   ];
 
   // Sample sessions
   static final List<Session> sessions = [
     Session(
       id: '1',
-      title: 'ASSIGNMENT',
-      date: DateTime.now(),
-      startTime: '09:00 AM',
-      endTime: '11:00 AM',
-      location: 'Room 101',
+      title: 'Mobile Application Development - C1',
+      date: DateTime(2026, 2, 10),
+      startTime: '12:00',
+      endTime: '13:30',
+      location: 'Room 101', // Assumed location
       sessionType: SessionType.classSession,
       wasAttended: true,
-    ),
-    Session(
-      id: '2',
-      title: 'Quiz 1',
-      date: DateTime.now(),
-      startTime: '02:00 PM',
-      endTime: '03:30 PM',
-      location: 'Lab 204',
-      sessionType: SessionType.masterySession,
-      wasAttended: null,
-    ),
-    Session(
-      id: '3',
-      title: 'Assignment 2',
-      date: DateTime.now(),
-      startTime: '04:00 PM',
-      endTime: '05:00 PM',
-      location: 'Library',
-      sessionType: SessionType.studyGroup,
-      wasAttended: null,
-    ),
-    Session(
-      id: '4',
-      title: 'Weekly Team Meeting',
-      date: DateTime.now().add(const Duration(days: 1)),
-      startTime: '10:00 AM',
-      endTime: '11:00 AM',
-      location: 'Meeting Room A',
-      sessionType: SessionType.pslMeeting,
-      wasAttended: null,
     ),
   ];
 
@@ -102,11 +58,8 @@ class MockDataProvider {
     return (attendedSessions / recordedSessions) * 100;
   }
 
-  // Get academic week number (assuming semester started Jan 6, 2026)
+  // Get academic week number
   static int getAcademicWeek() {
-    final semesterStart = DateTime(2026, 1, 6);
-    final now = DateTime.now();
-    final difference = now.difference(semesterStart).inDays;
-    return (difference / 7).ceil();
+    return 6;
   }
 }

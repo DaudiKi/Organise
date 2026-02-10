@@ -26,7 +26,7 @@ class DateHeaderWidget extends StatelessWidget {
           ),
           const SizedBox(height: 4),
           Text(
-            'Week $academicWeek',
+            'WEEK $academicWeek',
             style: TextStyle(
               color: Colors.white.withOpacity(0.7),
               fontSize: 14,
