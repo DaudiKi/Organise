@@ -38,14 +38,14 @@ class DashboardScreen extends StatelessWidget {
                   children: [
                     Expanded(
                       child: StatsCardWidget(
-                        count: '4',
+                        count: '1',
                         label: 'Active\nProjects',
                       ),
                     ),
                     const SizedBox(width: 12),
                     Expanded(
                       child: StatsCardWidget(
-                        count: '7',
+                        count: '1',
                         label: 'Code\nSectors',
                       ),
                     ),
