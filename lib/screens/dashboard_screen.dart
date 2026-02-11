@@ -8,15 +8,45 @@ import '../widgets/assignment_card_widget.dart';
 import 'assignment_details_screen.dart';
 import 'risk_status_screen.dart';
 
+import 'package:provider/provider.dart';
+import '../providers/user_provider.dart';
+import '../providers/enrollment_provider.dart';
+import '../providers/session_provider.dart';
+import '../providers/assignment_provider.dart';
+import 'student/join_course_screen.dart';
+
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final todaysSessions = MockDataProvider.getTodaysSessions();
-    final upcomingAssignments = MockDataProvider.getUpcomingAssignments();
-    final pendingCount = MockDataProvider.getPendingAssignmentsCount();
-    final attendancePercentage = MockDataProvider.getAttendancePercentage();
+    final userId = context.watch<UserProvider>().user?.id;
+    
+    if (userId == null) {
+       return const Center(child: CircularProgressIndicator());
+    }
+
+    // Get enrolled course IDs
+    final enrolledCourseIds = context.watch<EnrollmentProvider>().getEnrolledCourseIds(userId);
+
+    // Get Data from Providers
+    final allSessions = context.watch<SessionProvider>().getSessionsByCourses(enrolledCourseIds);
+    final allAssignments = context.watch<AssignmentProvider>().getAssignmentsByCourses(enrolledCourseIds);
+
+    // Filter Logic
+    final todaysSessions = allSessions.where((s) => s.isToday()).toList();
+    todaysSessions.sort((a, b) => a.startTime.compareTo(b.startTime));
+
+    final upcomingAssignments = allAssignments.where((a) => a.isDueWithinWeek()).toList();
+    upcomingAssignments.sort((a, b) => a.dueDate.compareTo(b.dueDate));
+
+    final pendingCount = allAssignments.where((a) => !a.isCompleted).length;
+    
+    // Calculate Attendance (Mock calculation for now as we don't have historical session generation yet)
+    // In a real app, this would query past sessions.
+    final attendedCount = allSessions.where((s) => s.wasAttended == true).length;
+    final totalPastSessions = allSessions.where((s) => s.date.isBefore(DateTime.now())).length;
+    final attendancePercentage = totalPastSessions == 0 ? 100.0 : (attendedCount / totalPastSessions) * 100;
 
     return Scaffold(
       backgroundColor: const Color(0xFF0D1B2A),
@@ -29,26 +59,21 @@ class DashboardScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: const Icon(
-              Icons.warning_amber_rounded,
-              color: Colors.orange,
-              size: 28,
-            ),
-            tooltip: 'Risk Status',
+            icon: const Icon(Icons.add_link),
+            tooltip: 'Join Course',
             onPressed: () {
-              Navigator.push(
+               Navigator.push(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => RiskStatusScreen(
-                    studentName: MockDataProvider.getStudentName(),
-                    attendancePercentage: attendancePercentage,
-                    assignmentCompletionPercentage:
-                        MockDataProvider.getAssignmentCompletionPercentage(),
-                    averageScorePercentage:
-                        MockDataProvider.getAverageScorePercentage(),
-                  ),
-                ),
+                MaterialPageRoute(builder: (context) => const JoinCourseScreen()),
               );
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.logout),
+            tooltip: 'Logout',
+            onPressed: () {
+               context.read<UserProvider>().signOut();
+               Navigator.of(context).pushReplacementNamed('/');
             },
           ),
         ],
@@ -148,7 +173,8 @@ class DashboardScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Text(
-                      'No sessions scheduled for today',
+                      'No sessions today.\nJoin a course to see your schedule!',
+                      textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.white.withValues(alpha: 0.6),
                         fontSize: 14,
@@ -193,7 +219,8 @@ class DashboardScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Text(
-                      'No assignments due within the next 7 days',
+                      'No assignments due soon.\nCheck back later!',
+                      textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.white.withValues(alpha: 0.6),
                         fontSize: 14,

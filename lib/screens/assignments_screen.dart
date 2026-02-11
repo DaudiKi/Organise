@@ -1,8 +1,10 @@
-import 'package:flutter/material.dart';
-import '../data/mock_data.dart';
+import 'package:provider/provider.dart';
+import '../providers/user_provider.dart';
+import '../providers/enrollment_provider.dart';
+import '../providers/assignment_provider.dart';
+import '../models/assignment.dart';
 import '../widgets/assignment_card_widget.dart';
 import 'assignment_details_screen.dart';
-import 'edit_assignment_screen.dart';
 
 class AssignmentsScreen extends StatefulWidget {
   const AssignmentsScreen({super.key});
@@ -23,20 +25,8 @@ class _AssignmentsScreenState extends State<AssignmentsScreen> {
     setState(() {});
   }
 
-  void _createAssignment() async {
-    final result = await Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const EditAssignmentScreen(),
-      ),
-    );
 
-    if (result == true) {
-      setState(() {});
-    }
-  }
-
-  Widget _buildAssignmentsList(List<dynamic> assignments) {
+  Widget _buildAssignmentsList(List<Assignment> assignments) {
     if (assignments.isEmpty) {
       return Center(
         child: Padding(
@@ -66,13 +56,15 @@ class _AssignmentsScreenState extends State<AssignmentsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final allAssignments = MockDataProvider.assignments;
-    final highPriorityAssignments =
-        MockDataProvider.getAssignmentsByPriority('High');
-    final mediumPriorityAssignments =
-        MockDataProvider.getAssignmentsByPriority('Medium');
-    final lowPriorityAssignments =
-        MockDataProvider.getAssignmentsByPriority('Low');
+    final userId = context.watch<UserProvider>().user?.id;
+    if (userId == null) return const Center(child: CircularProgressIndicator());
+
+    final enrolledCourseIds = context.watch<EnrollmentProvider>().getEnrolledCourseIds(userId);
+    final allAssignments = context.watch<AssignmentProvider>().getAssignmentsByCourses(enrolledCourseIds);
+
+    final highPriorityAssignments = allAssignments.where((a) => a.priority == 'High').toList();
+    final mediumPriorityAssignments = allAssignments.where((a) => a.priority == 'Medium').toList();
+    final lowPriorityAssignments = allAssignments.where((a) => a.priority == 'Low').toList();
 
     return DefaultTabController(
         length: 4,
@@ -104,23 +96,6 @@ class _AssignmentsScreenState extends State<AssignmentsScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    TextButton(
-                        onPressed: _createAssignment,
-                        style: TextButton.styleFrom(
-                            backgroundColor:
-                                Theme.of(context).colorScheme.secondary,
-                            foregroundColor:
-                                Theme.of(context).colorScheme.primary,
-                            minimumSize: const Size(0, 50),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8))),
-                        child: const Text(
-                          "Create Group Assignment",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        )),
                     const SizedBox(height: 16),
                     Expanded(
                       child: _buildAssignmentsList(allAssignments),
@@ -134,23 +109,6 @@ class _AssignmentsScreenState extends State<AssignmentsScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    TextButton(
-                        onPressed: _createAssignment,
-                        style: TextButton.styleFrom(
-                            backgroundColor:
-                                Theme.of(context).colorScheme.secondary,
-                            foregroundColor:
-                                Theme.of(context).colorScheme.primary,
-                            minimumSize: const Size(0, 50),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8))),
-                        child: const Text(
-                          "Create Group Assignment",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        )),
                     const SizedBox(height: 16),
                     Expanded(
                       child: _buildAssignmentsList(highPriorityAssignments),
@@ -164,23 +122,6 @@ class _AssignmentsScreenState extends State<AssignmentsScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    TextButton(
-                        onPressed: _createAssignment,
-                        style: TextButton.styleFrom(
-                            backgroundColor:
-                                Theme.of(context).colorScheme.secondary,
-                            foregroundColor:
-                                Theme.of(context).colorScheme.primary,
-                            minimumSize: const Size(0, 50),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8))),
-                        child: const Text(
-                          "Create Group Assignment",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        )),
                     const SizedBox(height: 16),
                     Expanded(
                       child: _buildAssignmentsList(mediumPriorityAssignments),
@@ -194,23 +135,6 @@ class _AssignmentsScreenState extends State<AssignmentsScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    TextButton(
-                        onPressed: _createAssignment,
-                        style: TextButton.styleFrom(
-                            backgroundColor:
-                                Theme.of(context).colorScheme.secondary,
-                            foregroundColor:
-                                Theme.of(context).colorScheme.primary,
-                            minimumSize: const Size(0, 50),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8))),
-                        child: const Text(
-                          "Create Group Assignment",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        )),
                     const SizedBox(height: 16),
                     Expanded(
                       child: _buildAssignmentsList(lowPriorityAssignments),

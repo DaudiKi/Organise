@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../models/assignment.dart';
-import '../data/mock_data.dart';
-import 'edit_assignment_screen.dart';
+import '../models/assignment.dart';
 
 class AssignmentDetailsScreen extends StatefulWidget {
   final Assignment assignment;
@@ -39,57 +38,6 @@ class _AssignmentDetailsScreenState extends State<AssignmentDetailsScreen> {
     }
   }
 
-  void _deleteAssignment() {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        backgroundColor: const Color(0xFF1B263B),
-        title: const Text(
-          'Delete Assignment',
-          style: TextStyle(color: Colors.white),
-        ),
-        content: const Text(
-          'Are you sure you want to delete this assignment?',
-          style: TextStyle(color: Colors.white70),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('Cancel'),
-          ),
-          TextButton(
-            onPressed: () {
-              MockDataProvider.deleteAssignment(_assignment.id);
-              Navigator.pop(context); // Close dialog
-              Navigator.pop(context); // Go back to assignments list
-            },
-            style: TextButton.styleFrom(
-              foregroundColor: const Color(0xFFC41E3A),
-            ),
-            child: const Text('Delete'),
-          ),
-        ],
-      ),
-    );
-  }
-
-  void _editAssignment() async {
-    final result = await Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => EditAssignmentScreen(assignment: _assignment),
-      ),
-    );
-
-    if (result == true) {
-      // Refresh the assignment data
-      final updatedAssignment = MockDataProvider.assignments
-          .firstWhere((a) => a.id == _assignment.id);
-      setState(() {
-        _assignment = updatedAssignment;
-      });
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -106,16 +54,6 @@ class _AssignmentDetailsScreenState extends State<AssignmentDetailsScreen> {
         ),
         iconTheme: const IconThemeData(color: Colors.white),
         elevation: 0,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.edit),
-            onPressed: _editAssignment,
-          ),
-          IconButton(
-            icon: const Icon(Icons.delete),
-            onPressed: _deleteAssignment,
-          ),
-        ],
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),

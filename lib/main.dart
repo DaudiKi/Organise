@@ -1,12 +1,51 @@
 import 'package:flutter/material.dart';
 import 'screens/dashboard_screen.dart';
+import 'screens/lecturer/lecturer_dashboard.dart';
 import 'screens/assignments_screen.dart';
 import 'screens/schedule_screen.dart';
 import 'screens/announcements_screen.dart';
 import 'screens/signup.dart';
 
-void main() {
-  runApp(const AluStudentPlatformApp());
+import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:provider/provider.dart';
+import 'services/auth_service.dart';
+import 'providers/user_provider.dart';
+import 'providers/course_provider.dart';
+import 'providers/assignment_provider.dart';
+import 'providers/session_provider.dart';
+import 'providers/enrollment_provider.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  
+  // TODO: Replace with your actual Supabase URL and Anon Key
+  // await Supabase.initialize(
+  //   url: 'YOUR_SUPABASE_URL',
+  //   anonKey: 'YOUR_SUPABASE_ANON_KEY',
+  // );
+
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => UserProvider(MockAuthService()),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => CourseProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => AssignmentProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => SessionProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => EnrollmentProvider(),
+        ),
+      ],
+      child: const AluStudentPlatformApp(),
+    ),
+  );
 }
 
 class AluStudentPlatformApp extends StatelessWidget {
@@ -15,7 +54,7 @@ class AluStudentPlatformApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'ALU Student Platform',
+      title: 'Organise',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
@@ -37,6 +76,7 @@ class AluStudentPlatformApp extends StatelessWidget {
       home: const StudentSignUpScreen(),
       routes: {
         '/dashboard': (context) => const MainNavigationScreen(),
+        '/lecturer-dashboard': (context) => const LecturerDashboardScreen(),
       },
     );
   }

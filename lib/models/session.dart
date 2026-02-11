@@ -7,6 +7,7 @@ enum SessionType {
 
 class Session {
   final String id;
+  final String courseId;
   final String title;
   final DateTime date;
   final String startTime;
@@ -17,6 +18,7 @@ class Session {
 
   Session({
     required this.id,
+    required this.courseId,
     required this.title,
     required this.date,
     required this.startTime,
@@ -77,6 +79,7 @@ class Session {
   // Copy with method for updating
   Session copyWith({
     String? id,
+    String? courseId,
     String? title,
     DateTime? date,
     String? startTime,
@@ -87,6 +90,7 @@ class Session {
   }) {
     return Session(
       id: id ?? this.id,
+      courseId: courseId ?? this.courseId,
       title: title ?? this.title,
       date: date ?? this.date,
       startTime: startTime ?? this.startTime,

@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../constants/colours.dart';
 
+import 'package:provider/provider.dart';
+import '../services/auth_service.dart';
+import '../providers/user_provider.dart';
 import '../widgets/form_container_widget.dart';
 
 /// Student Sign-Up Screen
@@ -16,7 +19,10 @@ class StudentSignUpScreen extends StatefulWidget {
 
 class _StudentSignUpScreenState extends State<StudentSignUpScreen> {
   final _formKey = GlobalKey<FormState>();
+  final _nameController = TextEditingController();
   final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  UserRole _selectedRole = UserRole.student;
   bool _isLoading = false;
 
   // Selected courses tracking
@@ -89,12 +95,45 @@ class _StudentSignUpScreenState extends State<StudentSignUpScreen> {
       _isLoading = true;
     });
 
-    // Simulate API call
-    await Future.delayed(const Duration(seconds: 2));
+    try {
+      await context.read<UserProvider>().signUp(
+        _emailController.text.trim(),
+        _passwordController.text.trim(),
+        _selectedRole,
+        _nameController.text.trim(),
+      );
 
-    setState(() {
-      _isLoading = false;
-    });
+      if (mounted) {
+         ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Account created successfully!'),
+            backgroundColor: Colors.green,
+          ),
+        );
+         // Navigate based on role
+         final userProvider = context.read<UserProvider>();
+         if (userProvider.isLecturer) {
+             Navigator.of(context).pushReplacementNamed('/lecturer-dashboard');
+         } else {
+             Navigator.of(context).pushReplacementNamed('/dashboard');
+         }
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Error: $e'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+        });
+      }
+    }
 
     // Show success message
     if (mounted) {
@@ -110,7 +149,12 @@ class _StudentSignUpScreenState extends State<StudentSignUpScreen> {
       // Navigate to dashboard after 1.5 seconds
       await Future.delayed(const Duration(milliseconds: 1500));
       if (mounted) {
-        Navigator.of(context).pushReplacementNamed('/dashboard');
+         final userProvider = context.read<UserProvider>();
+         if (userProvider.isLecturer) {
+             Navigator.of(context).pushReplacementNamed('/lecturer-dashboard');
+         } else {
+             Navigator.of(context).pushReplacementNamed('/dashboard');
+         }
       }
     }
   }
@@ -160,6 +204,69 @@ class _StudentSignUpScreenState extends State<StudentSignUpScreen> {
                 const SizedBox(height: 32),
 
                 // Form Container with Course Selection Inside
+                // Name Field
+                TextFormField(
+                  controller: _nameController,
+                  decoration: const InputDecoration(
+                    labelText: 'Full Name',
+                    border: OutlineInputBorder(),
+                    prefixIcon: Icon(Icons.person),
+                    filled: true,
+                    fillColor: Colors.white,
+                  ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter your name';
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 16),
+
+                // Role Selection
+                DropdownButtonFormField<UserRole>(
+                  value: _selectedRole,
+                  decoration: const InputDecoration(
+                    labelText: 'I am a...',
+                    border: OutlineInputBorder(),
+                    prefixIcon: Icon(Icons.badge),
+                    filled: true,
+                    fillColor: Colors.white,
+                  ),
+                  items: UserRole.values.map((role) {
+                    return DropdownMenuItem(
+                      value: role,
+                      child: Text(role.toString().split('.').last.toUpperCase()),
+                    );
+                  }).toList(),
+                  onChanged: (UserRole? newValue) {
+                    setState(() {
+                      _selectedRole = newValue!;
+                    });
+                  },
+                ),
+                const SizedBox(height: 16),
+                
+                 // Password Field
+                TextFormField(
+                  controller: _passwordController,
+                   obscureText: true,
+                  decoration: const InputDecoration(
+                    labelText: 'Password',
+                    border: OutlineInputBorder(),
+                    prefixIcon: Icon(Icons.lock),
+                    filled: true,
+                    fillColor: Colors.white,
+                  ),
+                  validator: (value) {
+                    if (value == null || value.length < 6) {
+                      return 'Password must be at least 6 characters';
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 16),
+
                 FormContainerWidget(
                   formKey: _formKey,
                   emailController: _emailController,

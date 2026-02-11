@@ -1,8 +1,9 @@
-import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../models/session.dart';
-import '../data/mock_data.dart';
+import '../providers/user_provider.dart';
+import '../providers/enrollment_provider.dart';
+import '../providers/session_provider.dart';
 import '../constants/colours.dart';
-import 'add_edit_session_screen.dart';
 
 class ScheduleScreen extends StatefulWidget {
   const ScheduleScreen({super.key});
@@ -14,7 +15,17 @@ class ScheduleScreen extends StatefulWidget {
 class _ScheduleScreenState extends State<ScheduleScreen> {
   @override
   Widget build(BuildContext context) {
-    final weeklySessions = MockDataProvider.getWeeklySessions();
+    final userId = context.watch<UserProvider>().user?.id;
+    if (userId == null) return const Center(child: CircularProgressIndicator());
+
+    final enrolledCourseIds = context.watch<EnrollmentProvider>().getEnrolledCourseIds(userId);
+    final weeklySessions = context.watch<SessionProvider>().getSessionsByCourses(enrolledCourseIds);
+    // Note: This gets ALL sessions for enrolled courses. 
+    // Ideally we should filter for "this week" here or in the provider.
+    // For now, let's filter to upcoming week logic if compatible with mock data, 
+    // or just show all for simplicity as "Weekly Schedule" might imply a view.
+    // The original checks `isInCurrentWeek`.
+    final filteredSessions = weeklySessions.where((s) => s.isInCurrentWeek()).toList();
     
     return Scaffold(
       backgroundColor: AppColours.background,
@@ -25,21 +36,10 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
           style: TextStyle(color: Colors.white),
         ),
         elevation: 0,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.add, color: Colors.white),
-            onPressed: () => _navigateToAddSession(),
-          ),
-        ],
       ),
-      body: weeklySessions.isEmpty
+      body: filteredSessions.isEmpty
           ? _buildEmptyState()
-          : _buildScheduleList(weeklySessions),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => _navigateToAddSession(),
-        backgroundColor: AppColours.primary,
-        child: const Icon(Icons.add, color: Colors.white),
-      ),
+          : _buildScheduleList(filteredSessions),
     );
   }
 
@@ -63,15 +63,6 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              'Tap the + button to add a new session',
-              style: TextStyle(
-                color: Colors.grey[400],
-                fontSize: 16,
-              ),
-              textAlign: TextAlign.center,
             ),
           ],
         ),
@@ -194,39 +185,6 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                       ),
                     ],
                   ),
-                ),
-                PopupMenuButton<String>(
-                  icon: const Icon(Icons.more_vert, color: Colors.white70),
-                  color: AppColours.background,
-                  onSelected: (value) {
-                    if (value == 'edit') {
-                      _navigateToEditSession(session);
-                    } else if (value == 'delete') {
-                      _confirmDeleteSession(session);
-                    }
-                  },
-                  itemBuilder: (context) => [
-                    const PopupMenuItem(
-                      value: 'edit',
-                      child: Row(
-                        children: [
-                          Icon(Icons.edit, color: Colors.white70, size: 20),
-                          SizedBox(width: 8),
-                          Text('Edit', style: TextStyle(color: Colors.white)),
-                        ],
-                      ),
-                    ),
-                    const PopupMenuItem(
-                      value: 'delete',
-                      child: Row(
-                        children: [
-                          Icon(Icons.delete, color: Colors.red, size: 20),
-                          SizedBox(width: 8),
-                          Text('Delete', style: TextStyle(color: Colors.red)),
-                        ],
-                      ),
-                    ),
-                  ],
                 ),
               ],
             ),
@@ -379,79 +337,15 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
   }
 
   void _updateAttendance(String sessionId, bool wasAttended) {
-    setState(() {
-      MockDataProvider.updateSessionAttendance(sessionId, wasAttended);
-    });
+    final session = context.read<SessionProvider>().sessions.firstWhere((s) => s.id == sessionId);
+    final updatedSession = session.copyWith(wasAttended: wasAttended);
+    context.read<SessionProvider>().updateSession(updatedSession);
     
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text('Attendance marked as ${wasAttended ? "Present" : "Absent"}'),
         backgroundColor: wasAttended ? Colors.green : Colors.red,
         duration: const Duration(seconds: 2),
-      ),
-    );
-  }
-
-  void _navigateToAddSession() async {
-    final result = await Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const AddEditSessionScreen(),
-      ),
-    );
-    
-    if (result == true) {
-      setState(() {});
-    }
-  }
-
-  void _navigateToEditSession(Session session) async {
-    final result = await Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => AddEditSessionScreen(session: session),
-      ),
-    );
-    
-    if (result == true) {
-      setState(() {});
-    }
-  }
-
-  void _confirmDeleteSession(Session session) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        backgroundColor: AppColours.cardBackground,
-        title: const Text(
-          'Delete Session',
-          style: TextStyle(color: Colors.white),
-        ),
-        content: Text(
-          'Are you sure you want to delete "${session.title}"?',
-          style: const TextStyle(color: Colors.white70),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('Cancel', style: TextStyle(color: Colors.grey)),
-          ),
-          TextButton(
-            onPressed: () {
-              setState(() {
-                MockDataProvider.deleteSession(session.id);
-              });
-              Navigator.pop(context);
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Session deleted successfully'),
-                  backgroundColor: Colors.red,
-                ),
-              );
-            },
-            child: const Text('Delete', style: TextStyle(color: Colors.red)),
-          ),
-        ],
       ),
     );
   }

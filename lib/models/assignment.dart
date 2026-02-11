@@ -1,5 +1,6 @@
 class Assignment {
   final String id;
+  final String courseId;
   final String title;
   final DateTime dueDate;
   final String courseName;
@@ -8,6 +9,7 @@ class Assignment {
 
   Assignment({
     required this.id,
+    required this.courseId,
     required this.title,
     required this.dueDate,
     required this.courseName,
