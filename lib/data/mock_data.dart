@@ -6,6 +6,7 @@ class MockDataProvider {
   static final List<Assignment> _assignments = [
     Assignment(
       id: '1',
+      courseId: 'CSE101',
       title: 'Formative_Assignment_1',
       dueDate: DateTime(2026, 2, 10, 23, 59),
       courseName: 'Mobile Application Development Assignment',
@@ -46,6 +47,7 @@ class MockDataProvider {
   static final List<Session> _sessions = [
     Session(
       id: '1',
+      courseId: 'CSE101',
       title: 'Mobile Application Development - C1',
       date: DateTime(2026, 2, 10),
       startTime: '12:00',
@@ -56,6 +58,7 @@ class MockDataProvider {
     ),
     Session(
       id: '2',
+      courseId: 'CSE102',
       title: 'Data Structures & Algorithms',
       date: DateTime(2026, 2, 11),
       startTime: '09:00',
@@ -66,6 +69,7 @@ class MockDataProvider {
     ),
     Session(
       id: '3',
+      courseId: 'CSE101',
       title: 'Mobile Dev Study Group',
       date: DateTime(2026, 2, 12),
       startTime: '14:00',

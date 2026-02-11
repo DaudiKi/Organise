@@ -6,7 +6,6 @@ import 'screens/schedule_screen.dart';
 import 'screens/announcements_screen.dart';
 import 'screens/signup.dart';
 
-import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:provider/provider.dart';
 import 'services/auth_service.dart';
 import 'providers/user_provider.dart';

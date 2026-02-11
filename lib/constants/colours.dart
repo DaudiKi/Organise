@@ -9,6 +9,7 @@ const Color kTextTertiary = Color(0x99FFFFFF);
 const Color kReminderColor = Color(0xFFF5A623);    
 const Color kEventColor = Colors.blueAccent;
 const Color kUpdateColor = Colors.greenAccent;
+const Color kErrorColor = Color(0xFFC41E3A);
 
 // AppColours class for consistent theming
 class AppColours {

@@ -1,0 +1,984 @@
+
+Support for Android x86 targets will be removed in the next stable release after 3.27. See https://github.com/flutter/flutter/issues/157543 for details.
+Running Gradle task 'assembleDebug'...                          
+lib/main.dart:97:5: Error: A value of type 'AssignmentsScreen' can't be assigned to a variable of type 'Widget'.
+ - 'AssignmentsScreen' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+ - 'Widget' is from 'package:flutter/src/widgets/framework.dart' ('/C:/flutter/packages/flutter/lib/src/widgets/framework.dart').
+    AssignmentsScreen(),
+    ^
+lib/main.dart:98:5: Error: A value of type 'ScheduleScreen' can't be assigned to a variable of type 'Widget'.
+ - 'ScheduleScreen' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+ - 'Widget' is from 'package:flutter/src/widgets/framework.dart' ('/C:/flutter/packages/flutter/lib/src/widgets/framework.dart').
+    ScheduleScreen(),
+    ^
+lib/screens/schedule_screen.dart:8:30: Error: Type 'StatefulWidget' not found.
+class ScheduleScreen extends StatefulWidget {
+                             ^^^^^^^^^^^^^^
+lib/screens/schedule_screen.dart:12:3: Error: Type 'State' not found.
+  State<ScheduleScreen> createState() => _ScheduleScreenState();
+  ^^^^^
+lib/screens/schedule_screen.dart:15:36: Error: Type 'State' not found.
+class _ScheduleScreenState extends State<ScheduleScreen> {
+                                   ^^^^^
+lib/screens/schedule_screen.dart:17:3: Error: Type 'Widget' not found.
+  Widget build(BuildContext context) {
+  ^^^^^^
+lib/screens/schedule_screen.dart:17:16: Error: Type 'BuildContext' not found.
+  Widget build(BuildContext context) {
+               ^^^^^^^^^^^^
+lib/screens/schedule_screen.dart:46:3: Error: Type 'Widget' not found.
+  Widget _buildEmptyState() {
+  ^^^^^^
+lib/screens/schedule_screen.dart:73:3: Error: Type 'Widget' not found.
+  Widget _buildScheduleList(List<Session> sessions) {
+  ^^^^^^
+lib/screens/schedule_screen.dart:105:3: Error: Type 'Widget' not found.
+  Widget _buildDateHeader(String dateKey, DateTime date) {
+  ^^^^^^
+lib/screens/schedule_screen.dart:150:3: Error: Type 'Widget' not found.
+  Widget _buildSessionCard(Session session) {
+  ^^^^^^
+lib/screens/schedule_screen.dart:222:3: Error: Type 'Widget' not found.
+  Widget _buildSessionTypeIcon(SessionType type) {
+  ^^^^^^
+lib/screens/schedule_screen.dart:255:3: Error: Type 'Widget' not found.
+  Widget _buildAttendanceToggle(Session session) {
+  ^^^^^^
+lib/screens/schedule_screen.dart:295:3: Error: Type 'Widget' not found.
+  Widget _buildAttendanceButton({
+  ^^^^^^
+lib/screens/schedule_screen.dart:298:14: Error: Type 'Color' not found.
+    required Color color,
+             ^^^^^
+lib/screens/schedule_screen.dart:299:14: Error: Type 'VoidCallback' not found.
+    required VoidCallback onTap,
+             ^^^^^^^^^^^^
+lib/screens/schedule_screen.dart:9:31: Error: The super constructor has no corresponding named parameter.
+  const ScheduleScreen({super.key});
+                              ^
+lib/screens/schedule_screen.dart:17:16: Error: 'BuildContext' isn't a type.
+  Widget build(BuildContext context) {
+               ^^^^^^^^^^^^
+lib/screens/schedule_screen.dart:19:52: Error: Method not found: 'CircularProgressIndicator'.
+    if (userId == null) return const Center(child: CircularProgressIndicator());
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/screens/schedule_screen.dart:19:38: Error: Couldn't find constructor 'Center'.
+    if (userId == null) return const Center(child: CircularProgressIndicator());
+                                     ^^^^^^
+lib/screens/schedule_screen.dart:36:35: Error: Undefined name 'Colors'.
+          style: TextStyle(color: Colors.white),
+                                  ^^^^^^
+lib/screens/schedule_screen.dart:36:18: Error: Method not found: 'TextStyle'.
+          style: TextStyle(color: Colors.white),
+                 ^^^^^^^^^
+lib/screens/schedule_screen.dart:34:22: Error: Couldn't find constructor 'Text'.
+        title: const Text(
+                     ^^^^
+lib/screens/schedule_screen.dart:30:12: Error: The method 'Scaffold' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Scaffold'.
+    return Scaffold(
+           ^^^^^^^^
+lib/screens/schedule_screen.dart:32:15: Error: The method 'AppBar' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'AppBar'.
+      appBar: AppBar(
+              ^^^^^^
+lib/screens/schedule_screen.dart:49:24: Error: Couldn't find constructor 'EdgeInsets.all'.
+        padding: const EdgeInsets.all(24.0),
+                       ^^^
+lib/screens/schedule_screen.dart:58:19: Error: Couldn't find constructor 'SizedBox'.
+            const SizedBox(height: 16),
+                  ^^^^^^^^
+lib/screens/schedule_screen.dart:62:24: Error: Undefined name 'Colors'.
+                color: Colors.white,
+                       ^^^^^^
+lib/screens/schedule_screen.dart:64:29: Error: Undefined name 'FontWeight'.
+                fontWeight: FontWeight.bold,
+                            ^^^^^^^^^^
+lib/screens/schedule_screen.dart:61:22: Error: Method not found: 'TextStyle'.
+              style: TextStyle(
+                     ^^^^^^^^^
+lib/screens/schedule_screen.dart:59:19: Error: Couldn't find constructor 'Text'.
+            const Text(
+                  ^^^^
+lib/screens/schedule_screen.dart:47:12: Error: The method 'Center' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Center'.
+    return Center(
+           ^^^^^^
+lib/screens/schedule_screen.dart:48:14: Error: The method 'Padding' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Padding'.
+      child: Padding(
+             ^^^^^^^
+lib/screens/schedule_screen.dart:50:16: Error: The method 'Column' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Column'.
+        child: Column(
+               ^^^^^^
+lib/screens/schedule_screen.dart:51:30: Error: The getter 'MainAxisAlignment' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'MainAxisAlignment'.
+          mainAxisAlignment: MainAxisAlignment.center,
+                             ^^^^^^^^^^^^^^^^^
+lib/screens/schedule_screen.dart:53:13: Error: The method 'Icon' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Icon'.
+            Icon(
+            ^^^^
+lib/screens/schedule_screen.dart:54:15: Error: The getter 'Icons' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'Icons'.
+              Icons.calendar_today_outlined,
+              ^^^^^
+lib/screens/schedule_screen.dart:86:22: Error: Couldn't find constructor 'EdgeInsets.all'.
+      padding: const EdgeInsets.all(16),
+                     ^^^
+lib/screens/schedule_screen.dart:96:19: Error: Couldn't find constructor 'SizedBox'.
+            const SizedBox(height: 8),
+                  ^^^^^^^^
+lib/screens/schedule_screen.dart:98:19: Error: Couldn't find constructor 'SizedBox'.
+            const SizedBox(height: 16),
+                  ^^^^^^^^
+lib/screens/schedule_screen.dart:85:12: Error: The getter 'ListView' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'ListView'.
+    return ListView.builder(
+           ^^^^^^^^
+lib/screens/schedule_screen.dart:92:16: Error: The method 'Column' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Column'.
+        return Column(
+               ^^^^^^
+lib/screens/schedule_screen.dart:93:31: Error: The getter 'CrossAxisAlignment' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'CrossAxisAlignment'.
+          crossAxisAlignment: CrossAxisAlignment.start,
+                              ^^^^^^^^^^^^^^^^^^
+lib/screens/schedule_screen.dart:109:22: Error: Couldn't find constructor 'EdgeInsets.symmetric'.
+      padding: const EdgeInsets.symmetric(vertical: 8),
+                     ^^^^^^^^^
+lib/screens/schedule_screen.dart:113:28: Error: Couldn't find constructor 'EdgeInsets.symmetric'.
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                           ^^^^^^^^^
+lib/screens/schedule_screen.dart:128:19: Error: Couldn't find constructor 'SizedBox'.
+            const SizedBox(width: 8),
+                  ^^^^^^^^
+lib/screens/schedule_screen.dart:130:30: Error: Couldn't find constructor 'EdgeInsets.symmetric'.
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                             ^^^^^^^^^
+lib/screens/schedule_screen.dart:138:26: Error: Undefined name 'Colors'.
+                  color: Colors.white,
+                         ^^^^^^
+lib/screens/schedule_screen.dart:139:31: Error: Undefined name 'FontWeight'.
+                  fontWeight: FontWeight.bold,
+                              ^^^^^^^^^^
+lib/screens/schedule_screen.dart:137:24: Error: Method not found: 'TextStyle'.
+                style: TextStyle(
+                       ^^^^^^^^^
+lib/screens/schedule_screen.dart:135:28: Error: Couldn't find constructor 'Text'.
+              child: const Text(
+                           ^^^^
+lib/screens/schedule_screen.dart:108:12: Error: The method 'Padding' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Padding'.
+    return Padding(
+           ^^^^^^^
+lib/screens/schedule_screen.dart:110:14: Error: The method 'Row' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Row'.
+      child: Row(
+             ^^^
+lib/screens/schedule_screen.dart:112:11: Error: The method 'Container' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Container'.
+          Container(
+          ^^^^^^^^^
+lib/screens/schedule_screen.dart:114:25: Error: The method 'BoxDecoration' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'BoxDecoration'.
+            decoration: BoxDecoration(
+                        ^^^^^^^^^^^^^
+lib/screens/schedule_screen.dart:116:29: Error: The getter 'BorderRadius' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'BorderRadius'.
+              borderRadius: BorderRadius.circular(20),
+                            ^^^^^^^^^^^^
+lib/screens/schedule_screen.dart:118:20: Error: The method 'Text' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Text'.
+            child: Text(
+                   ^^^^
+lib/screens/schedule_screen.dart:120:22: Error: The method 'TextStyle' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'TextStyle'.
+              style: TextStyle(
+                     ^^^^^^^^^
+lib/screens/schedule_screen.dart:121:24: Error: The getter 'Colors' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'Colors'.
+                color: Colors.white,
+                       ^^^^^^
+lib/screens/schedule_screen.dart:122:29: Error: The getter 'FontWeight' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'FontWeight'.
+                fontWeight: FontWeight.bold,
+                            ^^^^^^^^^^
+lib/screens/schedule_screen.dart:129:13: Error: The method 'Container' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Container'.
+            Container(
+            ^^^^^^^^^
+lib/screens/schedule_screen.dart:131:27: Error: The method 'BoxDecoration' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'BoxDecoration'.
+              decoration: BoxDecoration(
+                          ^^^^^^^^^^^^^
+lib/screens/schedule_screen.dart:132:24: Error: The getter 'Colors' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'Colors'.
+                color: Colors.green,
+                       ^^^^^^
+lib/screens/schedule_screen.dart:133:31: Error: The getter 'BorderRadius' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'BorderRadius'.
+                borderRadius: BorderRadius.circular(12),
+                              ^^^^^^^^^^^^
+lib/screens/schedule_screen.dart:153:21: Error: Couldn't find constructor 'EdgeInsets.only'.
+      margin: const EdgeInsets.only(bottom: 12),
+                    ^^^^
+lib/screens/schedule_screen.dart:158:24: Error: Couldn't find constructor 'EdgeInsets.all'.
+        padding: const EdgeInsets.all(16),
+                       ^^^
+lib/screens/schedule_screen.dart:165:23: Error: Couldn't find constructor 'SizedBox'.
+                const SizedBox(width: 12),
+                      ^^^^^^^^
+lib/screens/schedule_screen.dart:173:34: Error: Undefined name 'Colors'.
+                          color: Colors.white,
+                                 ^^^^^^
+lib/screens/schedule_screen.dart:175:39: Error: Undefined name 'FontWeight'.
+                          fontWeight: FontWeight.bold,
+                                      ^^^^^^^^^^
+lib/screens/schedule_screen.dart:172:38: Error: Couldn't find constructor 'TextStyle'.
+                        style: const TextStyle(
+                                     ^^^^^^^^^
+lib/screens/schedule_screen.dart:178:29: Error: Couldn't find constructor 'SizedBox'.
+                      const SizedBox(height: 4),
+                            ^^^^^^^^
+lib/screens/schedule_screen.dart:191:34: Error: Undefined name 'Colors'.
+            const Divider(color: Colors.white24, height: 24),
+                                 ^^^^^^
+lib/screens/schedule_screen.dart:191:19: Error: Couldn't find constructor 'Divider'.
+            const Divider(color: Colors.white24, height: 24),
+                  ^^^^^^^
+lib/screens/schedule_screen.dart:195:23: Error: Couldn't find constructor 'SizedBox'.
+                const SizedBox(width: 6),
+                      ^^^^^^^^
+lib/screens/schedule_screen.dart:200:23: Error: Couldn't find constructor 'SizedBox'.
+                const SizedBox(width: 16),
+                      ^^^^^^^^
+lib/screens/schedule_screen.dart:203:25: Error: Couldn't find constructor 'SizedBox'.
+                  const SizedBox(width: 6),
+                        ^^^^^^^^
+lib/screens/schedule_screen.dart:214:19: Error: Couldn't find constructor 'SizedBox'.
+            const SizedBox(height: 12),
+                  ^^^^^^^^
+lib/screens/schedule_screen.dart:151:12: Error: The method 'Card' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Card'.
+    return Card(
+           ^^^^
+lib/screens/schedule_screen.dart:154:14: Error: The method 'RoundedRectangleBorder' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'RoundedRectangleBorder'.
+      shape: RoundedRectangleBorder(
+             ^^^^^^^^^^^^^^^^^^^^^^
+lib/screens/schedule_screen.dart:155:23: Error: The getter 'BorderRadius' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'BorderRadius'.
+        borderRadius: BorderRadius.circular(12),
+                      ^^^^^^^^^^^^
+lib/screens/schedule_screen.dart:157:14: Error: The method 'Padding' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Padding'.
+      child: Padding(
+             ^^^^^^^
+lib/screens/schedule_screen.dart:159:16: Error: The method 'Column' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Column'.
+        child: Column(
+               ^^^^^^
+lib/screens/schedule_screen.dart:160:31: Error: The getter 'CrossAxisAlignment' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'CrossAxisAlignment'.
+          crossAxisAlignment: CrossAxisAlignment.start,
+                              ^^^^^^^^^^^^^^^^^^
+lib/screens/schedule_screen.dart:162:13: Error: The method 'Row' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Row'.
+            Row(
+            ^^^
+lib/screens/schedule_screen.dart:166:17: Error: The method 'Expanded' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Expanded'.
+                Expanded(
+                ^^^^^^^^
+lib/screens/schedule_screen.dart:167:26: Error: The method 'Column' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Column'.
+                  child: Column(
+                         ^^^^^^
+lib/screens/schedule_screen.dart:168:41: Error: The getter 'CrossAxisAlignment' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'CrossAxisAlignment'.
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                                        ^^^^^^^^^^^^^^^^^^
+lib/screens/schedule_screen.dart:170:23: Error: The method 'Text' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Text'.
+                      Text(
+                      ^^^^
+lib/screens/schedule_screen.dart:179:23: Error: The method 'Text' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Text'.
+                      Text(
+                      ^^^^
+lib/screens/schedule_screen.dart:181:32: Error: The method 'TextStyle' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'TextStyle'.
+                        style: TextStyle(
+                               ^^^^^^^^^
+lib/screens/schedule_screen.dart:182:34: Error: The getter 'Colors' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'Colors'.
+                          color: Colors.grey[400],
+                                 ^^^^^^
+lib/screens/schedule_screen.dart:192:13: Error: The method 'Row' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Row'.
+            Row(
+            ^^^
+lib/screens/schedule_screen.dart:194:17: Error: The method 'Icon' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Icon'.
+                Icon(Icons.access_time, color: Colors.grey[400], size: 16),
+                ^^^^
+lib/screens/schedule_screen.dart:194:22: Error: The getter 'Icons' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'Icons'.
+                Icon(Icons.access_time, color: Colors.grey[400], size: 16),
+                     ^^^^^
+lib/screens/schedule_screen.dart:194:48: Error: The getter 'Colors' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'Colors'.
+                Icon(Icons.access_time, color: Colors.grey[400], size: 16),
+                                               ^^^^^^
+lib/screens/schedule_screen.dart:196:17: Error: The method 'Text' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Text'.
+                Text(
+                ^^^^
+lib/screens/schedule_screen.dart:198:26: Error: The method 'TextStyle' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'TextStyle'.
+                  style: TextStyle(color: Colors.grey[300], fontSize: 14),
+                         ^^^^^^^^^
+lib/screens/schedule_screen.dart:198:43: Error: The getter 'Colors' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'Colors'.
+                  style: TextStyle(color: Colors.grey[300], fontSize: 14),
+                                          ^^^^^^
+lib/screens/schedule_screen.dart:202:19: Error: The method 'Icon' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Icon'.
+                  Icon(Icons.location_on, color: Colors.grey[400], size: 16),
+                  ^^^^
+lib/screens/schedule_screen.dart:202:24: Error: The getter 'Icons' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'Icons'.
+                  Icon(Icons.location_on, color: Colors.grey[400], size: 16),
+                       ^^^^^
+lib/screens/schedule_screen.dart:202:50: Error: The getter 'Colors' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'Colors'.
+                  Icon(Icons.location_on, color: Colors.grey[400], size: 16),
+                                                 ^^^^^^
+lib/screens/schedule_screen.dart:204:19: Error: The method 'Expanded' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Expanded'.
+                  Expanded(
+                  ^^^^^^^^
+lib/screens/schedule_screen.dart:205:28: Error: The method 'Text' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Text'.
+                    child: Text(
+                           ^^^^
+lib/screens/schedule_screen.dart:207:30: Error: The method 'TextStyle' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'TextStyle'.
+                      style: TextStyle(color: Colors.grey[300], fontSize: 14),
+                             ^^^^^^^^^
+lib/screens/schedule_screen.dart:207:47: Error: The getter 'Colors' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'Colors'.
+                      style: TextStyle(color: Colors.grey[300], fontSize: 14),
+                                              ^^^^^^
+lib/screens/schedule_screen.dart:208:33: Error: The getter 'TextOverflow' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'TextOverflow'.
+                      overflow: TextOverflow.ellipsis,
+                                ^^^^^^^^^^^^
+lib/screens/schedule_screen.dart:223:5: Error: 'IconData' isn't a type.
+    IconData icon;
+    ^^^^^^^^
+lib/screens/schedule_screen.dart:224:5: Error: 'Color' isn't a type.
+    Color color;
+    ^^^^^
+lib/screens/schedule_screen.dart:246:22: Error: Couldn't find constructor 'EdgeInsets.all'.
+      padding: const EdgeInsets.all(10),
+                     ^^^
+lib/screens/schedule_screen.dart:228:16: Error: The getter 'Icons' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'Icons'.
+        icon = Icons.school;
+               ^^^^^
+lib/screens/schedule_screen.dart:229:17: Error: The getter 'Colors' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'Colors'.
+        color = Colors.blue;
+                ^^^^^^
+lib/screens/schedule_screen.dart:232:16: Error: The getter 'Icons' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'Icons'.
+        icon = Icons.emoji_events;
+               ^^^^^
+lib/screens/schedule_screen.dart:233:17: Error: The getter 'Colors' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'Colors'.
+        color = Colors.purple;
+                ^^^^^^
+lib/screens/schedule_screen.dart:236:16: Error: The getter 'Icons' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'Icons'.
+        icon = Icons.groups;
+               ^^^^^
+lib/screens/schedule_screen.dart:237:17: Error: The getter 'Colors' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'Colors'.
+        color = Colors.green;
+                ^^^^^^
+lib/screens/schedule_screen.dart:240:16: Error: The getter 'Icons' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'Icons'.
+        icon = Icons.meeting_room;
+               ^^^^^
+lib/screens/schedule_screen.dart:241:17: Error: The getter 'Colors' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'Colors'.
+        color = Colors.orange;
+                ^^^^^^
+lib/screens/schedule_screen.dart:245:12: Error: The method 'Container' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Container'.
+    return Container(
+           ^^^^^^^^^
+lib/screens/schedule_screen.dart:247:19: Error: The method 'BoxDecoration' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'BoxDecoration'.
+      decoration: BoxDecoration(
+                  ^^^^^^^^^^^^^
+lib/screens/schedule_screen.dart:249:23: Error: The getter 'BorderRadius' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'BorderRadius'.
+        borderRadius: BorderRadius.circular(10),
+                      ^^^^^^^^^^^^
+lib/screens/schedule_screen.dart:251:14: Error: The method 'Icon' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Icon'.
+      child: Icon(icon, color: color, size: 24),
+             ^^^^
+lib/screens/schedule_screen.dart:257:22: Error: Couldn't find constructor 'EdgeInsets.symmetric'.
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                     ^^^^^^^^^
+lib/screens/schedule_screen.dart:268:22: Error: Undefined name 'Colors'.
+              color: Colors.white70,
+                     ^^^^^^
+lib/screens/schedule_screen.dart:270:27: Error: Undefined name 'FontWeight'.
+              fontWeight: FontWeight.w500,
+                          ^^^^^^^^^^
+lib/screens/schedule_screen.dart:267:20: Error: Method not found: 'TextStyle'.
+            style: TextStyle(
+                   ^^^^^^^^^
+lib/screens/schedule_screen.dart:265:17: Error: Couldn't find constructor 'Text'.
+          const Text(
+                ^^^^
+lib/screens/schedule_screen.dart:281:21: Error: Couldn't find constructor 'SizedBox'.
+              const SizedBox(width: 8),
+                    ^^^^^^^^
+lib/screens/schedule_screen.dart:256:12: Error: The method 'Container' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Container'.
+    return Container(
+           ^^^^^^^^^
+lib/screens/schedule_screen.dart:258:19: Error: The method 'BoxDecoration' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'BoxDecoration'.
+      decoration: BoxDecoration(
+                  ^^^^^^^^^^^^^
+lib/screens/schedule_screen.dart:260:23: Error: The getter 'BorderRadius' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'BorderRadius'.
+        borderRadius: BorderRadius.circular(8),
+                      ^^^^^^^^^^^^
+lib/screens/schedule_screen.dart:262:14: Error: The method 'Row' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Row'.
+      child: Row(
+             ^^^
+lib/screens/schedule_screen.dart:263:28: Error: The getter 'MainAxisAlignment' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'MainAxisAlignment'.
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                           ^^^^^^^^^^^^^^^^^
+lib/screens/schedule_screen.dart:273:11: Error: The method 'Row' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Row'.
+          Row(
+          ^^^
+lib/screens/schedule_screen.dart:278:24: Error: The getter 'Colors' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'Colors'.
+                color: Colors.green,
+                       ^^^^^^
+lib/screens/schedule_screen.dart:285:24: Error: The getter 'Colors' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'Colors'.
+                color: Colors.red,
+                       ^^^^^^
+lib/screens/schedule_screen.dart:298:14: Error: 'Color' isn't a type.
+    required Color color,
+             ^^^^^
+lib/screens/schedule_screen.dart:299:14: Error: 'VoidCallback' isn't a type.
+    required VoidCallback onTap,
+             ^^^^^^^^^^^^
+lib/screens/schedule_screen.dart:304:24: Error: Couldn't find constructor 'EdgeInsets.symmetric'.
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                       ^^^^^^^^^
+lib/screens/schedule_screen.dart:301:12: Error: The method 'InkWell' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'InkWell'.
+    return InkWell(
+           ^^^^^^^
+lib/screens/schedule_screen.dart:303:14: Error: The method 'Container' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Container'.
+      child: Container(
+             ^^^^^^^^^
+lib/screens/schedule_screen.dart:305:21: Error: The method 'BoxDecoration' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'BoxDecoration'.
+        decoration: BoxDecoration(
+                    ^^^^^^^^^^^^^
+lib/screens/schedule_screen.dart:306:39: Error: The getter 'Colors' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'Colors'.
+          color: isSelected ? color : Colors.transparent,
+                                      ^^^^^^
+lib/screens/schedule_screen.dart:307:19: Error: The getter 'Border' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'Border'.
+          border: Border.all(
+                  ^^^^^^
+lib/screens/schedule_screen.dart:308:41: Error: The getter 'Colors' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'Colors'.
+            color: isSelected ? color : Colors.grey[600]!,
+                                        ^^^^^^
+lib/screens/schedule_screen.dart:311:25: Error: The getter 'BorderRadius' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'BorderRadius'.
+          borderRadius: BorderRadius.circular(20),
+                        ^^^^^^^^^^^^
+lib/screens/schedule_screen.dart:313:16: Error: The method 'Text' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Text'.
+        child: Text(
+               ^^^^
+lib/screens/schedule_screen.dart:315:18: Error: The method 'TextStyle' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'TextStyle'.
+          style: TextStyle(
+                 ^^^^^^^^^
+lib/screens/schedule_screen.dart:316:33: Error: The getter 'Colors' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'Colors'.
+            color: isSelected ? Colors.white : Colors.grey[400],
+                                ^^^^^^
+lib/screens/schedule_screen.dart:316:48: Error: The getter 'Colors' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'Colors'.
+            color: isSelected ? Colors.white : Colors.grey[400],
+                                               ^^^^^^
+lib/screens/schedule_screen.dart:318:38: Error: The getter 'FontWeight' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'FontWeight'.
+            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                                     ^^^^^^^^^^
+lib/screens/schedule_screen.dart:318:56: Error: The getter 'FontWeight' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'FontWeight'.
+            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                                                       ^^^^^^^^^^
+lib/screens/schedule_screen.dart:340:21: Error: The getter 'context' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'context'.
+    final session = context.read<SessionProvider>().sessions.firstWhere((s) => s.id == sessionId);
+                    ^^^^^^^
+lib/screens/schedule_screen.dart:342:5: Error: The getter 'context' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'context'.
+    context.read<SessionProvider>().updateSession(updatedSession);
+    ^^^^^^^
+lib/screens/schedule_screen.dart:344:5: Error: The getter 'ScaffoldMessenger' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'ScaffoldMessenger'.
+    ScaffoldMessenger.of(context).showSnackBar(
+    ^^^^^^^^^^^^^^^^^
+lib/screens/schedule_screen.dart:344:26: Error: The getter 'context' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'context'.
+    ScaffoldMessenger.of(context).showSnackBar(
+                         ^^^^^^^
+lib/screens/schedule_screen.dart:345:7: Error: The method 'SnackBar' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'SnackBar'.
+      SnackBar(
+      ^^^^^^^^
+lib/screens/schedule_screen.dart:346:18: Error: The method 'Text' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Text'.
+        content: Text('Attendance marked as ${wasAttended ? "Present" : "Absent"}'),
+                 ^^^^
+lib/screens/schedule_screen.dart:347:40: Error: The getter 'Colors' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'Colors'.
+        backgroundColor: wasAttended ? Colors.green : Colors.red,
+                                       ^^^^^^
+lib/screens/schedule_screen.dart:347:55: Error: The getter 'Colors' isn't defined for the class '_ScheduleScreenState'.
+ - '_ScheduleScreenState' is from 'package:organise/screens/schedule_screen.dart' ('lib/screens/schedule_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'Colors'.
+        backgroundColor: wasAttended ? Colors.green : Colors.red,
+                                                      ^^^^^^
+lib/screens/assignments_screen.dart:9:33: Error: Type 'StatefulWidget' not found.
+class AssignmentsScreen extends StatefulWidget {
+                                ^^^^^^^^^^^^^^
+lib/screens/assignments_screen.dart:13:3: Error: Type 'State' not found.
+  State<AssignmentsScreen> createState() => _AssignmentsScreenState();
+  ^^^^^
+lib/screens/assignments_screen.dart:16:39: Error: Type 'State' not found.
+class _AssignmentsScreenState extends State<AssignmentsScreen> {
+                                      ^^^^^
+lib/screens/assignments_screen.dart:29:3: Error: Type 'Widget' not found.
+  Widget _buildAssignmentsList(List<Assignment> assignments) {
+  ^^^^^^
+lib/screens/assignments_screen.dart:58:3: Error: Type 'Widget' not found.
+  Widget build(BuildContext context) {
+  ^^^^^^
+lib/screens/assignments_screen.dart:58:16: Error: Type 'BuildContext' not found.
+  Widget build(BuildContext context) {
+               ^^^^^^^^^^^^
+lib/screens/assignments_screen.dart:10:34: Error: The super constructor has no corresponding named parameter.
+  const AssignmentsScreen({super.key});
+                                 ^
+lib/screens/assignments_screen.dart:18:11: Error: The getter 'Navigator' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'Navigator'.
+    await Navigator.push(
+          ^^^^^^^^^
+lib/screens/assignments_screen.dart:19:7: Error: The getter 'context' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'context'.
+      context,
+      ^^^^^^^
+lib/screens/assignments_screen.dart:20:7: Error: The method 'MaterialPageRoute' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'MaterialPageRoute'.
+      MaterialPageRoute(
+      ^^^^^^^^^^^^^^^^^
+lib/screens/assignments_screen.dart:25:5: Error: The method 'setState' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'setState'.
+    setState(() {});
+    ^^^^^^^^
+lib/screens/assignments_screen.dart:33:26: Error: Couldn't find constructor 'EdgeInsets.all'.
+          padding: const EdgeInsets.all(32.0),
+                         ^^^
+lib/screens/assignments_screen.dart:31:14: Error: The method 'Center' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Center'.
+      return Center(
+             ^^^^^^
+lib/screens/assignments_screen.dart:32:16: Error: The method 'Padding' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Padding'.
+        child: Padding(
+               ^^^^^^^
+lib/screens/assignments_screen.dart:34:18: Error: The method 'Text' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Text'.
+          child: Text(
+                 ^^^^
+lib/screens/assignments_screen.dart:36:20: Error: The method 'TextStyle' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'TextStyle'.
+            style: TextStyle(
+                   ^^^^^^^^^
+lib/screens/assignments_screen.dart:37:22: Error: The getter 'Colors' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'Colors'.
+              color: Colors.white.withValues(alpha: 0.5),
+                     ^^^^^^
+lib/screens/assignments_screen.dart:45:12: Error: The method 'SingleChildScrollView' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'SingleChildScrollView'.
+    return SingleChildScrollView(
+           ^^^^^^^^^^^^^^^^^^^^^
+lib/screens/assignments_screen.dart:46:14: Error: The method 'Column' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Column'.
+      child: Column(
+             ^^^^^^
+lib/screens/assignments_screen.dart:58:16: Error: 'BuildContext' isn't a type.
+  Widget build(BuildContext context) {
+               ^^^^^^^^^^^^
+lib/screens/assignments_screen.dart:60:52: Error: Method not found: 'CircularProgressIndicator'.
+    if (userId == null) return const Center(child: CircularProgressIndicator());
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/screens/assignments_screen.dart:60:38: Error: Couldn't find constructor 'Center'.
+    if (userId == null) return const Center(child: CircularProgressIndicator());
+                                     ^^^^^^
+lib/screens/assignments_screen.dart:72:36: Error: Couldn't find constructor 'Color'.
+            backgroundColor: const Color(0xFF0D1B2A),
+                                   ^^^^^
+lib/screens/assignments_screen.dart:74:38: Error: Couldn't find constructor 'Color'.
+              backgroundColor: const Color(0xFF1B263B),
+                                     ^^^^^
+lib/screens/assignments_screen.dart:77:41: Error: Undefined name 'Colors'.
+                style: TextStyle(color: Colors.white),
+                                        ^^^^^^
+lib/screens/assignments_screen.dart:77:24: Error: Method not found: 'TextStyle'.
+                style: TextStyle(color: Colors.white),
+                       ^^^^^^^^^
+lib/screens/assignments_screen.dart:75:28: Error: Couldn't find constructor 'Text'.
+              title: const Text(
+                           ^^^^
+lib/screens/assignments_screen.dart:95:32: Error: Couldn't find constructor 'EdgeInsets.all'.
+                padding: const EdgeInsets.all(16),
+                               ^^^
+lib/screens/assignments_screen.dart:99:27: Error: Couldn't find constructor 'SizedBox'.
+                    const SizedBox(height: 16),
+                          ^^^^^^^^
+lib/screens/assignments_screen.dart:108:32: Error: Couldn't find constructor 'EdgeInsets.all'.
+                padding: const EdgeInsets.all(16),
+                               ^^^
+lib/screens/assignments_screen.dart:112:27: Error: Couldn't find constructor 'SizedBox'.
+                    const SizedBox(height: 16),
+                          ^^^^^^^^
+lib/screens/assignments_screen.dart:121:32: Error: Couldn't find constructor 'EdgeInsets.all'.
+                padding: const EdgeInsets.all(16),
+                               ^^^
+lib/screens/assignments_screen.dart:125:27: Error: Couldn't find constructor 'SizedBox'.
+                    const SizedBox(height: 16),
+                          ^^^^^^^^
+lib/screens/assignments_screen.dart:134:32: Error: Couldn't find constructor 'EdgeInsets.all'.
+                padding: const EdgeInsets.all(16),
+                               ^^^
+lib/screens/assignments_screen.dart:138:27: Error: Couldn't find constructor 'SizedBox'.
+                    const SizedBox(height: 16),
+                          ^^^^^^^^
+lib/screens/assignments_screen.dart:69:12: Error: The method 'DefaultTabController' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'DefaultTabController'.
+    return DefaultTabController(
+           ^^^^^^^^^^^^^^^^^^^^
+lib/screens/assignments_screen.dart:71:16: Error: The method 'Scaffold' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Scaffold'.
+        child: Scaffold(
+               ^^^^^^^^
+lib/screens/assignments_screen.dart:73:21: Error: The method 'AppBar' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'AppBar'.
+            appBar: AppBar(
+                    ^^^^^^
+lib/screens/assignments_screen.dart:80:23: Error: The method 'TabBar' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'TabBar'.
+              bottom: TabBar(
+                      ^^^^^^
+lib/screens/assignments_screen.dart:82:19: Error: The method 'Tab' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Tab'.
+                  Tab(text: 'All'),
+                  ^^^
+lib/screens/assignments_screen.dart:83:19: Error: The method 'Tab' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Tab'.
+                  Tab(text: 'High Priority'),
+                  ^^^
+lib/screens/assignments_screen.dart:84:19: Error: The method 'Tab' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Tab'.
+                  Tab(text: 'Medium Priority'),
+                  ^^^
+lib/screens/assignments_screen.dart:85:19: Error: The method 'Tab' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Tab'.
+                  Tab(text: 'Low Priority'),
+                  ^^^
+lib/screens/assignments_screen.dart:87:33: Error: The getter 'Theme' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'Theme'.
+                indicatorColor: Theme.of(context).colorScheme.secondary,
+                                ^^^^^
+lib/screens/assignments_screen.dart:88:29: Error: The getter 'Colors' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'Colors'.
+                labelColor: Colors.white,
+                            ^^^^^^
+lib/screens/assignments_screen.dart:92:19: Error: The method 'TabBarView' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'TabBarView'.
+            body: TabBarView(children: [
+                  ^^^^^^^^^^
+lib/screens/assignments_screen.dart:94:15: Error: The method 'Padding' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Padding'.
+              Padding(
+              ^^^^^^^
+lib/screens/assignments_screen.dart:96:24: Error: The method 'Column' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Column'.
+                child: Column(
+                       ^^^^^^
+lib/screens/assignments_screen.dart:97:39: Error: The getter 'CrossAxisAlignment' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'CrossAxisAlignment'.
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                                      ^^^^^^^^^^^^^^^^^^
+lib/screens/assignments_screen.dart:100:21: Error: The method 'Expanded' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Expanded'.
+                    Expanded(
+                    ^^^^^^^^
+lib/screens/assignments_screen.dart:107:15: Error: The method 'Padding' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Padding'.
+              Padding(
+              ^^^^^^^
+lib/screens/assignments_screen.dart:109:24: Error: The method 'Column' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Column'.
+                child: Column(
+                       ^^^^^^
+lib/screens/assignments_screen.dart:110:39: Error: The getter 'CrossAxisAlignment' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'CrossAxisAlignment'.
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                                      ^^^^^^^^^^^^^^^^^^
+lib/screens/assignments_screen.dart:113:21: Error: The method 'Expanded' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Expanded'.
+                    Expanded(
+                    ^^^^^^^^
+lib/screens/assignments_screen.dart:120:15: Error: The method 'Padding' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Padding'.
+              Padding(
+              ^^^^^^^
+lib/screens/assignments_screen.dart:122:24: Error: The method 'Column' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Column'.
+                child: Column(
+                       ^^^^^^
+lib/screens/assignments_screen.dart:123:39: Error: The getter 'CrossAxisAlignment' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'CrossAxisAlignment'.
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                                      ^^^^^^^^^^^^^^^^^^
+lib/screens/assignments_screen.dart:126:21: Error: The method 'Expanded' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Expanded'.
+                    Expanded(
+                    ^^^^^^^^
+lib/screens/assignments_screen.dart:133:15: Error: The method 'Padding' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Padding'.
+              Padding(
+              ^^^^^^^
+lib/screens/assignments_screen.dart:135:24: Error: The method 'Column' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Column'.
+                child: Column(
+                       ^^^^^^
+lib/screens/assignments_screen.dart:136:39: Error: The getter 'CrossAxisAlignment' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'CrossAxisAlignment'.
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                                      ^^^^^^^^^^^^^^^^^^
+lib/screens/assignments_screen.dart:139:21: Error: The method 'Expanded' isn't defined for the class '_AssignmentsScreenState'.
+ - '_AssignmentsScreenState' is from 'package:organise/screens/assignments_screen.dart' ('lib/screens/assignments_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'Expanded'.
+                    Expanded(
+                    ^^^^^^^^
+lib/screens/lecturer/manage_course_screen.dart:152:27: Error: The getter 'kErrorColor' isn't defined for the class '_AssignmentsTab'.
+ - '_AssignmentsTab' is from 'package:organise/screens/lecturer/manage_course_screen.dart' ('lib/screens/lecturer/manage_course_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'kErrorColor'.
+      case 'high': return kErrorColor;
+                          ^^^^^^^^^^^
+lib/screens/student/join_course_screen.dart:102:47: Error: Undefined name 'kErrorColor'.
+                style: const TextStyle(color: kErrorColor),
+                                              ^^^^^^^^^^^
+lib/data/mock_data.dart:7:15: Error: Required named parameter 'courseId' must be provided.
+    Assignment(
+              ^
+lib/models/assignment.dart:10:3: Context: Found this candidate, but the arguments don't match.
+  Assignment({
+  ^^^^^^^^^^
+lib/data/mock_data.dart:47:12: Error: Required named parameter 'courseId' must be provided.
+    Session(
+           ^
+lib/models/session.dart:19:3: Context: Found this candidate, but the arguments don't match.
+  Session({
+  ^^^^^^^
+lib/data/mock_data.dart:57:12: Error: Required named parameter 'courseId' must be provided.
+    Session(
+           ^
+lib/models/session.dart:19:3: Context: Found this candidate, but the arguments don't match.
+  Session({
+  ^^^^^^^
+lib/data/mock_data.dart:67:12: Error: Required named parameter 'courseId' must be provided.
+    Session(
+           ^
+lib/models/session.dart:19:3: Context: Found this candidate, but the arguments don't match.
+  Session({
+  ^^^^^^^
+Target kernel_snapshot_program failed: Exception
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileFlutterBuildDebug'.
+> Process 'command 'C:\flutter\bin\flutter.bat'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 7s
+Running Gradle task 'assembleDebug'...                              8.7s
+Gradle task assembleDebug failed with exit code 1

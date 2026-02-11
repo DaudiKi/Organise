@@ -5,8 +5,9 @@ import '../constants/colours.dart';
 
 class AddEditSessionScreen extends StatefulWidget {
   final Session? session; // null for add, not null for edit
+  final String courseId;
 
-  const AddEditSessionScreen({super.key, this.session});
+  const AddEditSessionScreen({super.key, this.session, required this.courseId});
 
   @override
   State<AddEditSessionScreen> createState() => _AddEditSessionScreenState();
@@ -151,6 +152,7 @@ class _AddEditSessionScreenState extends State<AddEditSessionScreen> {
 
       final session = Session(
         id: widget.session?.id ?? MockDataProvider.generateSessionId(),
+        courseId: widget.courseId,
         title: _titleController.text.trim(),
         date: _selectedDate,
         startTime: _formatTime(_startTime),
@@ -317,7 +319,7 @@ class _AddEditSessionScreenState extends State<AddEditSessionScreen> {
 
               // Session Type Dropdown
               DropdownButtonFormField<String>(
-                initialValue: _selectedSessionType,
+                value: _selectedSessionType,
                 dropdownColor: AppColours.cardBackground,
                 style: const TextStyle(color: Colors.white),
                 decoration: InputDecoration(

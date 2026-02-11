@@ -5,10 +5,12 @@ import '../data/mock_data.dart';
 
 class EditAssignmentScreen extends StatefulWidget {
   final Assignment? assignment; // null for creating new
+  final String courseId;
 
   const EditAssignmentScreen({
     super.key,
     this.assignment,
+    required this.courseId,
   });
 
   @override
@@ -78,6 +80,7 @@ class _EditAssignmentScreenState extends State<EditAssignmentScreen> {
         // Create new assignment
         final newAssignment = Assignment(
           id: DateTime.now().millisecondsSinceEpoch.toString(),
+          courseId: widget.courseId,
           title: _titleController.text,
           courseName: _courseController.text,
           dueDate: _selectedDate,
@@ -89,6 +92,7 @@ class _EditAssignmentScreenState extends State<EditAssignmentScreen> {
         // Update existing assignment
         final updatedAssignment = Assignment(
           id: widget.assignment!.id,
+          courseId: widget.courseId,
           title: _titleController.text,
           courseName: _courseController.text,
           dueDate: _selectedDate,
@@ -298,7 +302,7 @@ class _EditAssignmentScreenState extends State<EditAssignmentScreen> {
                       value: _isCompleted,
                       onChanged: (value) =>
                           setState(() => _isCompleted = value),
-                      activeThumbColor: Colors.green,
+                      activeColor: Colors.green,
                     ),
                   ],
                 ),
